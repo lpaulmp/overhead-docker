@@ -1,0 +1,19 @@
+FROM debian:9
+
+RUN apt-get update && \
+    apt-get install -y \
+    htop \
+    python3\
+    stress-ng \
+    systemd \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV dir=/opt
+ARG typeTest
+ENV test=${typeTest}
+
+WORKDIR ${dir}
+COPY scripts/ ${dir}
+RUN chmod +x ${dir}/*
+
+CMD /opt/$test.py

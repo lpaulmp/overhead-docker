@@ -1,0 +1,29 @@
+---
+version: "3.3"
+
+services:
+  debian-io:
+    image: lpaulmp/debian:io
+    build:
+      context: .
+      dockerfile: ./dockerfiles/debian
+      args:
+        typeTest: "overhead-io"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.05'
+          memory: 200M
+
+  debian-cpu:
+    image: lpaulmp/debian:cpu
+    build:
+      context: .
+      dockerfile: ./dockerfiles/debian
+      args:
+        typeTest: "overhead-cpu"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.05'
+          memory: 200M
