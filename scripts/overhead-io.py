@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# Other command to overhead io  stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.097;}' < /proc/meminfo)k --vm-keep -m 10
+# Is posible stress io using stress-ng already installed in the container
+# stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.097;}' < /proc/meminfo)k --vm-keep -m 10
 
 import subprocess
 import time
